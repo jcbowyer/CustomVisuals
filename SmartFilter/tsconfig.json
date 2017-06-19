@@ -1,0 +1,24 @@
+{
+  "compilerOptions": {
+    "allowJs": true,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "target": "ES5",
+    "sourceMap": true,
+    "out": "./.tmp/build/visual.js"
+  },
+  "files": [
+    ".api/v1.5.0/PowerBI-visuals.d.ts",
+    "node_modules/okviz/colorPalette.ts",
+    "node_modules/okviz/objectEnumerationUtility.ts",
+    "node_modules/okviz/textUtility.ts",
+    "node_modules/okviz/okvizUtility.ts",
+    "node_modules/okviz/colorblind.ts",
+    "src/visual.ts",
+    "typings/index.d.ts",
+    "node_modules/powerbi-visuals-utils-typeutils/lib/index.d.ts",
+    "node_modules/powerbi-visuals-utils-svgutils/lib/index.d.ts",
+    "node_modules/powerbi-visuals-utils-dataviewutils/lib/index.d.ts",
+    "node_modules/powerbi-visuals-utils-formattingutils/lib/index.d.ts"
+  ]
+}

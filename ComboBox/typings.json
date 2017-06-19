@@ -1,0 +1,5 @@
+{
+  "globalDependencies": {
+    "kendo-ui": "registry:dt/kendo-ui#2017.1.118+20170221225939"
+  }
+}

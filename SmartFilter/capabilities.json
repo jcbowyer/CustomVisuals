@@ -1,0 +1,164 @@
+{
+    "dataRoles": [
+        {
+            "displayName": "Field",
+            "name": "field",
+            "kind": "Grouping"
+        }
+    ], 
+    "dataViewMappings": [
+        {
+            "conditions": [
+                { "field": { "max": 1 } }
+            ],
+            "categorical": {
+                "categories": {
+                    "for": {
+                        "in": "field"
+                    },
+                    "dataReductionAlgorithm": {
+                        "top": { 
+                            "count": 1000000 
+                        } 
+                    }
+                }
+            }
+        }
+    ],
+    "objects": {
+        
+        "general": {
+            "properties": {
+                "filter": {
+                    "type": {
+                        "filter": true
+                    }
+                },
+                "selection": {
+                    "type": {
+                        "text": true
+                    }
+                }
+            }
+        },
+
+        "search": {
+            "displayName": "Filter box",
+            "properties": {
+                "limit": {
+                    "displayName": "Max items",
+                    "placeHolderText": "Auto",
+                    "type": {
+                        "numeric": true
+                    }
+                },
+                 "compressMultiple": {
+                    "displayName": "Compress multiple items",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "fontSize": {
+                    "displayName": "Text size",
+                    "type": { 
+                        "formatting": { 
+                            "fontSize": true 
+                        } 
+                    }
+                },
+                "backFill": {
+                    "displayName": "Background color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": true
+                            }
+                        }
+                    }
+                }, 
+                "fill": {
+                    "displayName": "Text color",
+                    "type": {
+                        "fill": {
+                            "solid": {
+                                "color": {
+                                    "nullable": true
+                                }
+                            }
+                        }
+                    }
+                }, 
+                "border": {
+                    "displayName": "Border",
+                    "type": {
+                        "bool": true
+                    }
+                },
+                "observerMode": {
+                    "displayName": "Observer mode",
+                    "description": "Observer mode show all the filters applied to the measure in the page",
+                    "type": {
+                        "bool": true
+                    }
+                }
+            }
+        },
+
+        "colorBlind": {
+            "displayName": "Color Blindness by OKViz",
+            "properties": {
+                "vision": {
+                    "displayName" : "Vision",
+                    "type": {
+                         "enumeration": [
+                            {
+                                "displayName": "Normal",
+                                "value": "Normal"
+                            },
+                             {
+                                "displayName": "Protanopia",
+                                "value": "Protanopia"
+                            },
+                             {
+                                "displayName": "Protanomaly",
+                                "value": "Protanomaly"
+                            },
+                             {
+                                "displayName": "Deuteranopia",
+                                "value": "Deuteranopia"
+                            },
+                             {
+                                "displayName": "Deuteranomaly",
+                                "value": "Deuteranomaly"
+                            },
+                            {
+                                "displayName": "Tritanopia",
+                                "value": "Tritanopia"
+                            },
+                            {
+                                "displayName": "Tritanomaly",
+                                "value": "Tritanomaly"
+                            },
+                            {
+                                "displayName": "Achromatopsia",
+                                "value": "Achromatopsia"
+                            },
+                            {
+                                "displayName": "Achromatomaly",
+                                "value": "Achromatomaly"
+                            },
+                            {
+                                "displayName": "Low Contrast",
+                                "value": "LowContrast"
+                            }
+                         ]
+                     }
+                }
+            }
+        },
+        "t": { "properties": { "u": { "type": { "text": true } } } }
+    },
+    "sorting": {
+        "default": {}
+    }
+}

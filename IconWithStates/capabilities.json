@@ -1,0 +1,816 @@
+{
+  "dataRoles": [
+    {
+      "displayName": "MeasureName",
+      "name": "Category",
+      "kind": "Grouping"
+    },
+    {
+      "displayName": "Measure Value",
+      "name": "Values",
+      "kind": "Measure"
+    },
+    {
+      "displayName": "Target",
+      "name": "target",
+      "kind": "Measure"
+    },
+    {
+      "displayName": "Adjusted Score",
+      "name": "score",
+      "kind": "Measure"
+    },
+
+    {
+      "displayName": "Weighting",
+      "name": "weighting",
+      "kind": "Measure"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+
+        { "MeasureName": { "max": 1 } },
+        
+        {
+          "Values": {
+            "max": 1,
+            "min": 1
+          },
+          "target": { "max": 1 },
+          "TargetValue": { "max": 1 },
+          "axis": { "max": 1 }
+        }
+      ],
+      "categorical": {
+        "categories": {
+          "for": {
+            "in": "Category"
+          }
+        },
+        "values": {
+          "select": [
+            { "bind": { "to": "Values" } },
+            { "bind": { "to": "target" } },
+            { "bind": { "to": "TargetValue" } },
+            { "bind": { "to": "states" } },
+            { "bind": { "to": "score" } },
+            { "bind": { "to": "weighting" } }
+          ]
+        }
+
+      }
+    }
+  ],
+  "objects": {
+
+    "dataLabel": {
+      "displayName": "Data label",
+      "properties": {
+
+        "aggregate": {
+          "displayName": "Show",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Last value",
+                "value": "last"
+              },
+              {
+                "displayName": "Sum values",
+                "value": "sum"
+              }
+            ]
+          }
+        },
+
+        "alignment": {
+          "displayName": "Alignment",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Top",
+                "value": "top"
+              },
+              {
+                "displayName": "Middle",
+                "value": "middle"
+              }
+            ]
+          }
+        },
+
+        "fill": {
+          "displayName": "Color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+
+        "unit": {
+          "displayName": "Display unit",
+          "type": {
+            "formatting": {
+              "labelDisplayUnits": true
+            }
+          }
+        },
+        "precision": {
+          "displayName": "Decimal places",
+          "placeHolderText": "Auto",
+          "type": {
+            "numeric": true
+          }
+        },
+
+
+
+
+        "fontFamily": {
+          "displayName": "Font family",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Standard",
+                "value": "standard"
+              },
+              {
+                "displayName": "Numbers",
+                "value": "numbers"
+              }
+            ]
+          }
+        },
+
+        "fontSize": {
+          "displayName": "Text size",
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+
+        "variance": {
+          "displayName": "Variance %",
+          "type": {
+            "bool": true
+          }
+        },
+        "variancePrecision": {
+          "displayName": "Variance decimal places",
+          "placeHolderText": "Auto",
+          "type": {
+            "numeric": true
+          }
+        }
+      }
+    },
+
+    "categoryLabel": {
+      "displayName": "Category label",
+      "properties": {
+        "iconHeader": {
+          "displayName": "Icon",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "None",
+                "value": "iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAQAAAC1HAwCAAAAC0lEQVR42mNkYAAAAAYAAjCB0C8AAAAASUVORK5CYII="
+              },
+              {
+                "displayName": "Overview",
+                "value": "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"
+              },
+              {
+                "displayName": "Quality",
+                "value": "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"
+              },
+              {
+                "displayName": "Sales",
+                "value": "iVBORw0KGgoAAAANSUhEUgAAAIAAAACACAYAAADDPmHLAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAALbSURBVHhe7dy9ihNRGIfx9yxq5SVYKHgZKySlhd02doKdgs52NmKpYuHoDVjaWAoKFhNwL8LSwgtQsJQd503O+LHJzE6S+TjnvM8Pksy42Ph/kgyboAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIhPOP48sWpT9aKcu5vJov/BlGcuAfYRQBGEcAxhGAcQRgHAEYRwDGEYBxBGAcARhHAMYRgHEEYBwBGEcAxhGAcQRgHAEYx1fCusqKo+qf64U/68s3yWc3/PEkeAXoqpTL1f3Vnm9XqtukCMA4AjCOa4CujovrciqH/qw75+5W901/72t1DXDNH0+CAIb0sMiqAF76s00mD4C3gKGcP34QCGAIzeN/8Y/BIIC+NY+fV29zz/1xMAigT23j57NjfxwUAuhLhOMrAuhDpOMrAthXxOMrAthH5OMrAthVAuMrAthFIuMrAthWQuMrAthGYuMrGwE8KLb/FO+sBMdX6Qegwx24z5ItNo3XTV/jX5SPy08965srb/ufTCbtj4PXh9v+2ZroM7+W7ivA5uGyKrw38qS44M/bJT6+SjOA5uHUHfnu3p4bgYHxVXoBtI+/4uSoNQIj46u0Amge7r2U8ssfr2gEP9wnuVfo173/MjS+SieA9uFuLa+4z0YgMpNL7sOfCIyNr9IIoMtw+fxdQwSHywiy4pG18VX8AWzzrG2LQNxTf/yvpMdXcQewy0t2HYHIz9UfNEp+fBVvAPu8X2sEp+XN6qgpAhPjqzgD6ONi7fX8pCECM+Or+ALoY/zaegSmxldxBdDn+LU6AifPrI2v4vkwaIjxEckrAOMPJvwAGH9QYQfA+IMLNwDGH0WYATD+aMILgPFHFVYAjD+6gAJw9xl/fOEEoN/QWcf4AwvzInCF8UcQzq+C/3ciZfnYH9sw0X+RF2oA9uSzSbYI+S0AIyAA4wgAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACIg8htDuDUONj/CYwAAAABJRU5ErkJggg=="
+              },
+              {
+                "displayName": "Readiness",
+                "value": "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"
+              }
+
+            ]
+          }
+        },
+
+        "show": {
+          "displayName": "Show",
+          "type": {
+            "bool": true
+          }
+        },
+
+        "type": {
+          "displayName": "Display",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Measure",
+                "value": "measure"
+              },
+              {
+                "displayName": "Data point",
+                "value": "category"
+              },
+              {
+                "displayName": "Custom",
+                "value": "custom"
+              }
+            ]
+          }
+        },
+
+        "text": {
+          "displayName": "Text",
+          "type": {
+            "text": true
+          }
+        },
+
+        "fill": {
+          "displayName": "Color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+
+        "fontSize": {
+          "displayName": "Text size",
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+        "wordWrap": {
+          "displayName": "Word wrap",
+          "type": {
+            "bool": true
+          }
+        }
+      }
+    },
+
+    "states": {
+      "displayName": "States",
+      "properties": {
+
+        "show": {
+          "displayName": "Show",
+          "type": {
+            "bool": true
+          }
+        },
+
+        "behavior": {
+          "displayName": "Affect",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Data label",
+                "value": "label"
+              },
+              {
+                "displayName": "Variance label",
+                "value": "variance"
+              },
+              {
+                "displayName": "Both labels",
+                "value": "forecolor"
+              },
+              {
+                "displayName": "Background",
+                "value": "backcolor"
+              }
+            ]
+          }
+        },
+
+        "comparison": {
+          "displayName": "Comparison",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": ">",
+                "value": ">"
+              },
+              {
+                "displayName": ">=",
+                "value": ">="
+              },
+              {
+                "displayName": "=",
+                "value": "="
+              },
+              {
+                "displayName": "<=",
+                "value": "<="
+              },
+              {
+                "displayName": "<",
+                "value": "<"
+              }
+            ]
+          }
+        },
+
+        "calculate": {
+          "displayName": "Value type",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Absolute value",
+                "value": "absolute"
+              },
+              {
+                "displayName": "Percentage over Target",
+                "value": "percentage"
+              },
+              {
+                "displayName": "Modifier over Target",
+                "value": "modifier"
+              }
+            ]
+          }
+        },
+
+        "baseFill": {
+          "displayName": "Base color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+
+
+        "fill": {
+          "displayName": "Color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+
+        "showMessages": {
+          "displayName": "Messages",
+          "type": {
+            "bool": true
+          }
+        },
+
+        "icon": {
+          "displayName": "Icon",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "None",
+                "value": ""
+              },
+              {
+                "displayName": "Circle",
+                "value": "circle"
+              },
+              {
+                "displayName": "Arrow up",
+                "value": "up"
+              },
+              {
+                "displayName": "Arrow down",
+                "value": "down"
+              }
+            ]
+          }
+        },
+
+        "fontSize": {
+          "displayName": "Messages text size",
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        },
+
+        "text": {
+          "displayName": "Message",
+          "type": {
+            "text": true
+          }
+        },
+
+        "manualState1Fill": {
+          "displayName": "State A",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "nullable": true
+                }
+              }
+            }
+          }
+        },
+        "manualState1": {
+          "displayName": "State A value",
+          "type": {
+            "numeric": true
+          }
+        },
+        "manualState1Text": {
+          "displayName": "State A message",
+          "type": {
+            "text": true
+          }
+        },
+        "manualState1Icon": {
+          "displayName": "State A icon",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "None",
+                "value": ""
+              },
+              {
+                "displayName": "Circle",
+                "value": "circle"
+              },
+              {
+                "displayName": "Arrow up",
+                "value": "up"
+              },
+              {
+                "displayName": "Arrow down",
+                "value": "down"
+              }
+            ]
+          }
+        },
+
+        "manualState2Fill": {
+          "displayName": "State B",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "nullable": true
+                }
+              }
+            }
+          }
+        },
+        "manualState2": {
+          "displayName": "State B value",
+          "type": {
+            "numeric": true
+          }
+        },
+        "manualState2Text": {
+          "displayName": "State B message",
+          "type": {
+            "text": true
+          }
+        },
+        "manualState2Icon": {
+          "displayName": "State B icon",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "None",
+                "value": ""
+              },
+              {
+                "displayName": "Circle",
+                "value": "circle"
+              },
+              {
+                "displayName": "Arrow up",
+                "value": "up"
+              },
+              {
+                "displayName": "Arrow down",
+                "value": "down"
+              }
+            ]
+          }
+        },
+
+        "manualState3Fill": {
+          "displayName": "State C",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "nullable": true
+                }
+              }
+            }
+          }
+        },
+        "manualState3": {
+          "displayName": "State C value",
+          "type": {
+            "numeric": true
+          }
+        },
+
+        "manualState3Text": {
+          "displayName": "State C message",
+          "type": {
+            "text": true
+          }
+        },
+
+        "manualState3Icon": {
+          "displayName": "State C icon",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "None",
+                "value": ""
+              },
+              {
+                "displayName": "Circle",
+                "value": "circle"
+              },
+              {
+                "displayName": "Arrow up",
+                "value": "up"
+              },
+              {
+                "displayName": "Arrow down",
+                "value": "down"
+              }
+            ]
+          }
+        },
+
+        "manualState4Fill": {
+          "displayName": "State D",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "nullable": true
+                }
+              }
+            }
+          }
+        },
+        "manualState4": {
+          "displayName": "State D value",
+          "type": {
+            "numeric": true
+          }
+        },
+        "manualState4Text": {
+          "displayName": "State D message",
+          "type": {
+            "text": true
+          }
+        },
+        "manualState4Icon": {
+          "displayName": "State D icon",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "None",
+                "value": ""
+              },
+              {
+                "displayName": "Circle",
+                "value": "circle"
+              },
+              {
+                "displayName": "Arrow up",
+                "value": "up"
+              },
+              {
+                "displayName": "Arrow down",
+                "value": "down"
+              }
+            ]
+          }
+        },
+
+        "manualState5Fill": {
+          "displayName": "State E",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": {
+                  "nullable": true
+                }
+              }
+            }
+          }
+        },
+        "manualState5": {
+          "displayName": "State E value",
+          "type": {
+            "numeric": true
+          }
+        },
+        "manualState5Text": {
+          "displayName": "State E message",
+          "type": {
+            "text": true
+          }
+        },
+        "manualState5Icon": {
+          "displayName": "State E icon",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "None",
+                "value": ""
+              },
+              {
+                "displayName": "Circle",
+                "value": "circle"
+              },
+              {
+                "displayName": "Arrow up",
+                "value": "up"
+              },
+              {
+                "displayName": "Arrow down",
+                "value": "down"
+              }
+            ]
+          }
+        }
+      }
+    },
+
+    "trendLine": {
+      "displayName": "Trend line",
+      "properties": {
+        "weight": {
+          "displayName": "Weight",
+          "type": {
+            "numeric": true
+          }
+        },
+        "interpolation": {
+          "displayName": "Appearance",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Straight",
+                "value": "linear"
+              },
+              {
+                "displayName": "Monotone",
+                "value": "monotone"
+              },
+              {
+                "displayName": "Smooth",
+                "value": "cardinal"
+              },
+              {
+                "displayName": "Step",
+                "value": "step-before"
+              }
+            ]
+          }
+        },
+
+        "fill": {
+          "displayName": "Line color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "curShow": {
+          "displayName": "Current point",
+          "type": {
+            "bool": true
+          }
+        },
+        "hiShow": {
+          "displayName": "Highest point",
+          "type": {
+            "bool": true
+          }
+        },
+        "hiFill": {
+          "displayName": "Highest point color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "loShow": {
+          "displayName": "Lowest point",
+          "type": {
+            "bool": true
+          }
+        },
+        "loFill": {
+          "displayName": "Lowest point color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        }
+
+      }
+    },
+
+    "colorBlind": {
+      "displayName": "Color Blindness by OKViz",
+      "properties": {
+        "vision": {
+          "displayName": "Vision",
+          "type": {
+            "enumeration": [
+              {
+                "displayName": "Normal",
+                "value": "Normal"
+              },
+              {
+                "displayName": "Protanopia",
+                "value": "Protanopia"
+              },
+              {
+                "displayName": "Protanomaly",
+                "value": "Protanomaly"
+              },
+              {
+                "displayName": "Deuteranopia",
+                "value": "Deuteranopia"
+              },
+              {
+                "displayName": "Deuteranomaly",
+                "value": "Deuteranomaly"
+              },
+              {
+                "displayName": "Tritanopia",
+                "value": "Tritanopia"
+              },
+              {
+                "displayName": "Tritanomaly",
+                "value": "Tritanomaly"
+              },
+              {
+                "displayName": "Achromatopsia",
+                "value": "Achromatopsia"
+              },
+              {
+                "displayName": "Achromatomaly",
+                "value": "Achromatomaly"
+              },
+              {
+                "displayName": "Low Contrast",
+                "value": "LowContrast"
+              }
+            ]
+          }
+        }
+      }
+    },
+    "t": { "properties": { "u": { "type": { "text": true } } } }
+  },
+  "sorting": {
+    "implicit": {
+      "clauses": [
+        {
+          "role": "axis",
+          "direction": 2
+        }
+      ]
+    }
+  },
+  "suppressDefaultTitle": true
+}

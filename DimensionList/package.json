@@ -1,0 +1,15 @@
+{
+  "name": "visual",
+  "devDependencies": {
+    "powerbi-visuals-utils-dataviewutils": "1.0.1"
+  },
+  "dependencies": {
+    "d3": "^3.5.5",
+    "jquery": "^3.2.1",
+    "kendo-ui-core": "^2017.2.504",
+    "powerbi-visuals-utils-dataviewutils": "^1.0.1",
+    "powerbi-visuals-utils-formattingutils": "^1.0.0",
+    "powerbi-visuals-utils-svgutils": "^1.0.0",
+    "powerbi-visuals-utils-typeutils": "^1.0.0"
+  }
+}

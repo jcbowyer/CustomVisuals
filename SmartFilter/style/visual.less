@@ -1,0 +1,53 @@
+@import (less) "node_modules/powerbi-visuals-utils-formattingutils/lib/index.css";
+
+* ::-webkit-scrollbar {
+    width: 8px; height: 8px; background-color: transparent;
+}
+
+* ::-webkit-scrollbar-thumb {
+    background: #C8C8C8;
+}
+* ::-webkit-scrollbar-track-piece {
+    background: 0 0;
+}
+
+
+.tokenLabel { float:left;  line-height:1.5; margin:0 10px 0 0; -webkit-transform-style: preserve-3d; -moz-transform-style: preserve-3d; transform-style: preserve-3d;}
+        .tokenLabel p { position: relative; top: 50%; transform: translateY(-50%); margin:0 !important; padding:0 !important; line-height:1}
+    .tokenCombo {display:block; margin-right:10px}
+    .slicerHeader { right: 35px; bottom:50%; margin-bottom:-10px; position:absolute;  }
+      .chart:hover .slicerHeader .clear {    background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAA0AAAAMCAMAAACOacfrAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAilBMVEUAAACZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZmZkAAADzwmZqAAAALHRSTlMAAZd+rb54lrIGCsmID3LIacoJjrF7xOFCs3Ut3zfw3ICcpQM04qAM5eDptp212+MAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAcUlEQVQI10XN2RKCMBBE0Rs0QhJxQ0VAXBIXUP//+0xIif00p6qrB4aIZMIYkUzlbFSaKW1+nGcKcrP4w3O5ClhvYqXYwm5fHmKlUtRSN8c2QGo45dCcWy4BXK2D2z0dgLMP4R+aZ1xytuvLz6t/+/sLLCwFwGqVXfwAAAAASUVORK5CYII='); width: 13px; height: 12px; margin: 4px 0px 4px 2px; float: right; cursor: pointer; display: block; visibility: visible !important }
+
+div.Tokenize { position: relative; display: inline-block; zoom: 1;}
+    div.Tokenize ul { list-style: none; padding: 0; margin: 0;}
+       div.Tokenize ul li { white-space: nowrap; }
+        div.Tokenize ul.TokensContainer { cursor: text; padding: 3px 45px 0 0; overflow-y:auto; overflow-x:hidden; background-color: white; -webkit-touch-callout: none; -webkit-user-select: none; -moz-user-select: none; -ms-user-select: none; user-select: none;min-height:15px !important}
+
+        div.Tokenize.Disabled ul.TokensContainer,  div.Tokenize.Disabled ul.TokensContainer input { cursor: not-allowed;}
+        div.Tokenize ul.TokensContainer li.Token, div.Tokenize ul.TokensContainer li.TokenMultiple { background-color: #F2C811; padding: 0 5px; color:#000; line-height:1.5; }
+        div.Tokenize ul.TokensContainer.ui-sortable:not(.ui-sortable-disabled) li.Token {    cursor: move;}
+            div.Tokenize ul.TokensContainer li.Token.MovingShadow  {    /*border: 1px solid #fcefa1;*/    background-color: #fbf9ee;}
+            div.Tokenize ul.TokensContainer li.Token.PendingDelete {    opacity : 0.5;    -moz-opacity : 0.5;    -ms-filter: "alpha(opacity=50)";    filter : alpha(opacity=50);}
+            div.Tokenize ul.TokensContainer li.Token,  div.Tokenize ul.TokensContainer li.TokenMultiple, div.Tokenize ul.TokensContainer li.TokenSearch { margin: 0 0 3px 3px; float: left; max-width:99%; overflow:hidden;}
+            div.Tokenize ul.TokensContainer li.TokenSearch input {    margin: 0;    padding: 3px 0;    background-color: transparent;    line-height: 1.5;    border: none;    outline: none;}
+          
+            div.Tokenize ul.TokensContainer {    border: 1px solid #ccc;}
+                div.Tokenize.readonly ul.TokensContainer {border:none}
+             a.Close {    font-family: Arial, Helvetica, sans-serif !important;    font-weight:bold; font-size:16px !important;  line-height: 1;    float: right;        padding: 0;    cursor: pointer;  background-color: #F2C811;  color: #9f830c;  }
+            div.Tokenize.Disabled ul.TokensContainer li.Token a.Close {    display: none;}
+            div.Tokenize ul.TokensContainer li.Token a.Close:hover {    background: transparent;    text-decoration: none; color:#333}
+       div.Tokenize ul.Dropdown { box-sizing: border-box; border:0;  display: none; width: 100%; margin: -1px 0 0 0;  position: absolute;  background:#333; overflow-y: auto; box-shadow: 1px 1px 5px 1px rgba(0,0,0,.3); z-index: 99999999999999; }
+            div.Tokenize ul.Dropdown li { color:#fff; border-bottom:1px solid #333; padding: 8px 20px; overflow: hidden; cursor: pointer; text-overflow:ellipsis; line-height: 1.2}
+                div.Tokenize ul.Dropdown li.Selected span {display:inline-block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; max-width: 80%; }
+                div.Tokenize ul.Dropdown li::last-child {border-bottom: none}
+            div.Tokenize ul.Dropdown li.Hover { color:#333; text-decoration: none; background-color: #F2C811;  }
+            div.Tokenize ul.TokensContainer li.Token {max-width: 70%}
+            div.Tokenize .Token span, div.Tokenize .TokenMultiple span {max-width:90%;  display:inline-block; overflow:hidden; white-space:nowrap; text-overflow:ellipsis; margin:4px 10px 0 0}
+                div.Tokenize .TokenMultiple span {max-width:100%; margin-right:0}
+                div.Tokenize.readonly .Token span { text-overflow: unset; margin:4px 0; max-width: unset}
+
+            div.Tokenize .arrow {display:inline-block; bottom: 50%; margin-bottom:-6px; position: absolute; right: 12px !important; cursor:pointer; width:12px; height:12px; background:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGBAMAAAAFwGKyAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAAqUExURQAAAPX/////9dOffX2f032fyoKo3cqffX2k2P/w8Pr///Dw/9ikff//+qdKBUEAAAABdFJOUwBA5thmAAAAK0lEQVQI12PgFGBgYNrAcCeRgUG5i4HJRACIgExHZUcGoIRpCZAD4jIwAAB+OAUpuDvtiAAAAABJRU5ErkJggg==') no-repeat center; }
+
+            div.Tokenize .arrow.disabled {cursor:default; background-image:url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAwAAAAGBAMAAAAFwGKyAAAABGdBTUEAALGPC/xhBQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAALVBMVEUAAAD/8PD1//////Xw8P////rYpH2CqN3Tn319pNj6//99n9N9n8rKn30AAAAlyffbAAAADnRSTlMAWVlZWVlZWVlZWVlZWVMmYAsAAAABYktHRACIBR1IAAAACXBIWXMAAAsSAAALEgHS3X78AAAAK0lEQVQI12NgVGBgYHZgCCtiYLCYxcDcrQBEQOYmi00MQIme20AOiMvAAACURgejRqanHwAAAABJRU5ErkJggg=='); }
+
+            div.Tokenize.readonly .arrow {display:none}

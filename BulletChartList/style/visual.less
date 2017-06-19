@@ -1,0 +1,123 @@
+/** Your CSS code goes here */
+.c1-powerbi-table {
+    tr {
+        border-top: 1px solid #ddd;
+        border-bottom: 1px solid #ddd;
+
+        &:nth-child(even) {
+            background: #F2F2F2;
+        }
+
+        &:nth-child(odd) {
+            background: #FFF;
+        }
+    }
+
+    th {
+        display: none;
+        text-align: center;
+        margin: 0em 0em;
+        color: #76933C;
+        font-size: 18px;
+    }
+
+    td {
+        display: block;
+        text-align: left;
+        font-size: 16px;
+        margin: 0em 0em;
+
+        &:first-child {
+            padding-top: 0em;
+            text-align: left;
+        }
+
+        &:last-child {
+            padding-bottom: 0em;
+        }
+
+        &:before {
+            content: attr(data-th);
+            font-weight: bold;
+            display: inline-block;
+            color: #76933C;
+            font-size: 18px;
+        }
+    }
+
+    .dynamic {
+        td {
+            &:before {
+                display: none;
+            }
+
+            display: table-cell;
+            padding: 0em 0em;
+            padding: .5em !important;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+
+        th {
+            display: table-cell;
+            padding: 0em 0em;
+            padding: .5em !important;
+
+            &:first-child {
+                padding-left: 0;
+            }
+
+            &:last-child {
+                padding-right: 0;
+            }
+        }
+    }
+
+    color: black;
+    border-radius: .4em;
+    overflow: hidden;
+}
+
+.bullet {
+    .range.s0 {
+        fill: #eee;
+    }
+
+    .range.s1 {
+        fill: #ddd;
+    }
+
+    .range.s2 {
+        fill: #ccc;
+    }
+
+    .measure.s1 {
+        fill: steelblue;
+    }
+
+    .measure.s0 {
+        fill: steelblue;
+    }
+
+    .marker {
+        stroke: #000;
+        stroke-width: 2px;
+    }
+
+    font: 10px sans-serif;
+
+    .title {
+        font-size: 14px;
+        font-weight: bold;
+    }
+}
+
+.hidebullet {
+    display: none;
+}

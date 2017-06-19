@@ -1,0 +1,33 @@
+{
+  "visual": {
+    "name": "smartFilterByOKViz",
+    "displayName": "Smart Filter by OKViz",
+    "guid": "SmartFilterBySQLBI1458262140625",
+    "visualClassName": "Visual",
+    "version": "1.1.1",
+    "description": "Smart Filter by OKViz works like an observer, showing the current filters set in the report page, or like a slicer, allowing you to choose records from a drop-down list or search by typing a few letters.",
+    "supportUrl": "http://okviz.com/smart-filter/",
+    "gitHubUrl": "https://github.com/okviz/smartfilter"
+  },
+  "apiVersion": "1.5.0",
+  "author": {
+    "name": "OKViz - a trademark of SQLBI",
+    "email": "support@okviz.com"
+  },
+  "assets": {
+    "icon": "assets/icon.png"
+  },
+  "externalJS": [
+    "node_modules/jquery/dist/jquery.min.js",
+    "node_modules/d3/d3.min.js",
+    "node_modules/lodash/lodash.min.js",
+    "node_modules/globalize/lib/globalize.js",
+    "node_modules/globalize/lib/cultures/globalize.culture.en-US.js",
+    "node_modules/powerbi-visuals-utils-typeutils/lib/index.js",
+    "node_modules/powerbi-visuals-utils-svgutils/lib/index.js",
+    "node_modules/powerbi-visuals-utils-dataviewutils/lib/index.js",
+    "node_modules/powerbi-visuals-utils-formattingutils/lib/index.js"
+  ],
+  "style": "style/visual.less",
+  "capabilities": "capabilities.json"
+}

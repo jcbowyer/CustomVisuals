@@ -1,0 +1,138 @@
+{
+  "dataRoles": [
+    {
+      "displayName": "Category",
+      "name": "Category",
+      "kind": "Grouping"
+    },
+    {
+      "name": "Value",
+      "kind": "Measure",
+      "displayName": "Value"
+    },
+    {
+      "name": "TargetValue",
+      "kind": "Measure",
+      "displayName": "Target Value"
+    },
+    {
+      "name": "Maximum",
+      "kind": "Measure",
+      "displayName": "Maximum"
+    },
+    {
+      "name": "Satisfactory",
+      "kind": "Measure",
+      "displayName": "Satisfactory"
+    },
+    {
+      "name": "Good",
+      "kind": "Measure",
+      "displayName": "Good"
+    }
+  ],
+  "dataViewMappings": [
+    {
+      "conditions": [
+        {
+          "Value": { "max": 1 },
+          "TargetValue": { "max": 1 },
+          "Satisfactory": { "max": 1 },
+          "Good": { "max": 1 },
+          "Maximum": { "max": 1 }
+        }
+      ],
+      "categorical": {
+        "categories": {
+          "for": { "in": "Category" },
+          "dataReductionAlgorithm": { "top": {} }
+        },
+        "values": {
+          "select": [
+            { "bind": { "to": "Value" } },
+            { "bind": { "to": "TargetValue" } },
+            { "bind": { "to": "Satisfactory" } },
+            { "bind": { "to": "Good" } },
+            { "bind": { "to": "Maximum" } }
+          ]
+        }
+      }
+    }
+  ],
+  "objects": {
+    "thresholds": {
+      "displayName": "Thresholds",
+      "properties": {
+        "targetValue": {
+          "displayName": "Target Value",
+          "type": { "numeric": true }
+        },
+        "satisfactoryPercent": {
+          "displayName": "Satisfactory %",
+          "type": { "numeric": true }
+        },
+        "goodPercent": {
+          "displayName": "Good %",
+          "type": { "numeric": true }
+        },
+        "maximumPercent": {
+          "displayName": "Maximum %",
+          "type": { "numeric": true }
+        }
+      }
+    },
+    "dataPoint": {
+      "displayName": "Data colors",
+      "properties": {
+        "defaultColor": {
+          "displayName": "Default color",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "showAllDataPoints": {
+          "displayName": "Show all",
+          "type": {
+            "bool": true
+          }
+        },
+        "fill": {
+          "displayName": "Fill",
+          "type": {
+            "fill": {
+              "solid": {
+                "color": true
+              }
+            }
+          }
+        },
+        "fillRule": {
+          "displayName": "Color saturation",
+          "type": {
+            "fill": {}
+          }
+        },
+        "fontSize": {
+          "displayName": "Text Size",
+          "type": {
+            "formatting": {
+              "fontSize": true
+            }
+          }
+        }
+      }
+    }
+  },
+  "supportsHighlight": true,
+  "sorting": {
+    "default": {}
+  },
+  "drilldown": {
+    "roles": [ "Category" ]
+  }
+
+}
